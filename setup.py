@@ -9,7 +9,7 @@ setup(
     packages=['rwptools'],
     install_requires=[
           'gcloud>=0.18.3',
-          'google-auth>=1.22.1',
+          'google-auth>=1.17.2',
           'google-cloud-storage>=1.32.0',
           'pandas>=1.0',
           'pyarrow'
