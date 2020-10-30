@@ -1,7 +1,7 @@
 from google.cloud import storage
 import pandas as pd
 
-sc = storage.Client()
+sc = storage.Client(project='rw-algotrader')
 
 def _list_datasets(bucket):
     """Helper function for listing all objects inside a GCS bucket
