@@ -1,4 +1,5 @@
 from google.cloud import storage
+import pandas as pd
 
 sc = storage.Client()
 
@@ -108,21 +109,20 @@ def transfer_lab_object(pod,gcs_object,path='.'):
 
 
 def quicksetup(pod,path='.'):
-    """Transfers prices data from Research Pod data library and adds it as a pd.DataFrame to the Global Environment
+    """Transfers prices data from Research Pod data library and returns it as a pd.DataFrame
 
     Args:
         pod (str): The name of the Research Pod
         path (str, optional): The path to the local directory to save the transferred data. Defaults to '.'.
     
+    Returns:
+        pandas.DataFrame: returns prices dataframe from research pod data library 
     Examples:
     quicksetup('EquityFactors')
     prices.head()
 
     """
     
-    
-    global prices
-
     pod_meta = get_pod_meta(pod)
     prices_file = pod_meta['prices']
 
@@ -130,5 +130,6 @@ def quicksetup(pod,path='.'):
 
     prices = pd.read_feather(f'{path}/{prices_file}')
     prices['date'] = pd.to_datetime(prices['date'])
-    print('prices data object transferred and loaded as pd.DataFrame to Global Env')
+    
+    return prices 
 
