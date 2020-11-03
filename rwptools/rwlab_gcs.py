@@ -108,7 +108,7 @@ def transfer_lab_object(pod,gcs_object,path='.'):
 
 
 
-def quicksetup(pod,path='.'):
+def get_prices_data_frame(pod,path='.'):
     """Transfers prices data from Research Pod data library and returns it as a pd.DataFrame
 
     Args:

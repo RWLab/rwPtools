@@ -71,9 +71,9 @@ Research Pod prices file name.**
 Requires that you have authorised to the data library prior.
 
 ``` python
-from rwptools.rwlab_gcs import quicksetup
+from rwptools.rwlab_gcs import get_prices_data_frame
 
-prices = quicksetup('EquityFactors')
+prices = get_prices_data_frame('EquityFactors')
 prices.head()
 ```
 This transfers the essential data that you always need to `path` (ohlc,
