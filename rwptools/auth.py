@@ -54,6 +54,8 @@ def _gcloud_login():
     os.remove(name)
   if gcloud_process.returncode:
     raise Exception("ERROR Authentication Failed!")
+  else:
+    print('Account is authenticated!')
 
 
 
