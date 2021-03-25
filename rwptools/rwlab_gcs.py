@@ -41,6 +41,12 @@ def get_pod_meta(pod=None):
             'essentials':'R1000_ohlc_1d.feather',
             'prices': 'R1000_ohlc_1d.feather'
         },
+        'Crypto':{
+            'bucket':'crypto_research_pod',
+            'datasets': _list_datasets('crypto_research_pod'),
+            'essentials': None,
+            'prices': None
+        }
     }
 
     if pod is None:
