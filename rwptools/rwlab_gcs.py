@@ -43,7 +43,8 @@ def get_pod_meta(pod=None):
         },
         'Crypto':{
             'bucket':'crypto_research_pod',
-            'datasets': _list_datasets('crypto_research_pod'),
+            #'datasets': _list_datasets('crypto_research_pod'),
+            'datasets':'coinmetrics.csv',
             'essentials': None,
             'prices': None
         }
