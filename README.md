@@ -107,3 +107,24 @@ This transfers a specifc object to `path`, overwriting any existing
 local instance of that object.
 
 Requires that you’ve already authorised to the relevant data library
+
+
+### 6\. Using The RWLab Data Cache
+
+__Downloading Files__
+```python
+from rwptools.rwlab_gcs import load_from_cache
+load_from_cache('my_special_factor.csv')
+```
+Downloads files from the RWLab cache and saves them to the working directory
+
+__Saving Files__
+
+Saves files from the local directory to the RWLab cache
+
+_Note you must first have a local copy of the file you are trying to save_ 
+_Example `df.to_csv('my_special_factor.csv')`_
+```python
+from rwptools.rwlab_gcs import save_to_cache
+save_to_cache('my_special_factor.csv')
+```

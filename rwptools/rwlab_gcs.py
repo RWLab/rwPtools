@@ -114,6 +114,50 @@ def transfer_lab_object(pod,gcs_object,path='.'):
 
 
 
+
+def save_to_cache(filename):
+    """Saves local file to RWLab Cache bucket - Requires that the filename is saved in your filesystem
+
+    Args:
+        filename (str): Filename with extension i.e my_factor_table.csv
+
+    Examples:
+        save_to_cache('my_factor_table.csv')
+        >>> my_factor_table.csv saved to cache!
+    """
+
+    bucket = sc.bucket('rwlab_cache')
+    blob = bucket.blob(filename)
+    blob.upload_from_filename(filename)
+    print(f'{filename} saved to cache!')
+
+
+
+
+def load_from_cache(filename):
+    """Downloads file for RWLab cache to the working directory
+
+    Args:
+        filename (str): Filename
+    
+    Examples:
+        load_from_cache('my_factor_table.csv')
+        df = pd.read_csv('my_factor_table.csv')
+    """
+    print(f'Downloading {filename} from RWLab Cache...')
+    
+    blobs = sc.list_blobs('rwlab_cache')
+    name_blob = {i.name:i for i in blobs}
+    
+    try:
+        name_blob[filename].download_to_filename(filename)
+        print(f'Successfully downloaded {filename}')
+    except KeyError:
+        print(f"Error! {filename} does not exist in RWLab cache!")
+
+
+
+
 def get_prices_data_frame(pod,path='.'):
     """Transfers prices data from Research Pod data library and returns it as a pd.DataFrame
 
