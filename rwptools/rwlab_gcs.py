@@ -124,8 +124,8 @@ def get_prices_data_frame(pod,path='.'):
     Returns:
         pandas.DataFrame: returns prices dataframe from research pod data library 
     Examples:
-    quicksetup('EquityFactors')
-    prices.head()
+        get_prices_data_frame('EquityFactors')
+        prices.head()
 
     """
     
