@@ -46,6 +46,18 @@ def get_pod_meta(pod=None):
             'datasets': _list_datasets('crypto_research_pod'),
             'essentials': None,
             'prices': None
+        },
+        'FX':{
+            'bucket':'fx_research_pod',
+            'datasets': _list_datasets('fx_research_pod'),
+            'essentials': None,
+            'prices': None
+        },
+        'Macro':{
+            'bucket':'macro_research_pod',
+            'datasets': _list_datasets('macro_research_pod'),
+            'essentials': 'main_asset_classes_daily_ohlc.csv',
+            'prices': 'main_asset_classes_daily_ohlc.csv'
         }
     }
 
